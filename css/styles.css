@@ -75,13 +75,19 @@ button {
   cursor: pointer;
 }
 
-div.table-container {
+div.table-container-hidden {
   width: 98%;
   margin: 1%;
   display: none;
 }
 
-#table1 {
+div.table-container-visible {
+  width: 98%;
+  margin: 1%;
+  display: block;
+}
+
+.table {
   table-layout: fixed;
   width: 100%;
   border: 1px solid;
@@ -96,6 +102,13 @@ td {
   border: 1px solid;
 }
 
+.img {
+  width: 128px;
+  height: 128px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 footer {
   background-color: #7286a0;
