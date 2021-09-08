@@ -1,0 +1,139 @@
+body {
+  background-color: #cde7b0;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-size: 18px;
+  margin: 0;
+}
+
+header {
+  background-color: #59594a;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100vh;
+}
+
+section {
+  margin-bottom: 100px;
+}
+
+.input-section {
+  text-align: center;
+}
+
+.highlight {
+  border: 2px solid;
+  margin: 50px;
+  background-color: brown;
+  color: white;
+}
+
+.highlight-1 {
+  font-size: 30px;
+  width: 50%;
+  padding: 50px;
+}
+
+.highlight-2 {
+  font-size: 30px;
+  width: 50%;
+  padding: 50px;
+}
+
+select {
+  height: 30px;
+}
+
+form {
+  margin: 20px;
+  padding: 30px;
+  background-color: rgb(240, 240, 240);
+  border: 1px solid rgb(189, 189, 189);
+}
+
+#searchparm {
+  height: 30px;
+  width: 300px;
+}
+
+button {
+  margin: 20px;
+  padding: 0.5rem 1rem;
+  font-size: 18px;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  background-color: rgb(150, 66, 233);
+  cursor: pointer;
+}
+
+div.table-container-hidden {
+  width: 98%;
+  margin: 1%;
+  display: none;
+}
+
+div.table-container-visible {
+  width: 98%;
+  margin: 1%;
+  display: block;
+}
+
+.table {
+  table-layout: fixed;
+  width: 100%;
+  border: 1px solid;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+tr,
+th,
+td {
+  min-width: 250px;
+  border: 1px solid;
+}
+
+.img {
+  width: 128px;
+  height: 128px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  background-color: #7286a0;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-wrapper {
+  display: flex;
+}
+
+.para {
+  font-size: 20px;
+  font-weight: bold;
+  width: 75%;
+  height: 100%;
+}
+
+.socialicon {
+  display: flex;
+  justify-content: space-around;
+  width: 25%;
+  padding-top: 20px;
+}
+
+.sm_icon {
+  width: 30px;
+}

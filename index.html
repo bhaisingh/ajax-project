@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AJAX Project</title>
+  <title>Breach AM I-AJAX Project</title>
   <link rel="icon" href="images/favicon.ico">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -11,9 +11,63 @@
 </head>
 <body>
   <header>
+    <h1>Breach Am I</h1>
   </header>
   <main>
+    <div class="container">
+      <section>
+        <div class="input-section"> 
+          <h2>Find if your email was part of Data Breach</h2>
+          <div class="highlight">
+            <p><span class="highlight-1">500 Websites </span><span class="highlight-2"> 11,500,200,500 accounts</span></p>
+          </div>
+          <div> 
+            <form id="search-form">
+              <label for="search">Search Type:</label>
+              <select id="search" name="search">
+                <option value="email">E-mail</option>
+                <option value="password">Password</option>
+                <option value="domain">Domain</option>
+                <option value="All Sites">All Sites</option>
+              </select>
+              <input type="text" id="searchparm" name="searchparm" palceholder="type value..">
+              
+              <div class="form-actions">
+                <button type="submit">Check</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="table-container-hidden">
+
+        </div>
+      </section>
+    </div>
   </main>
+  <footer>
+    <div class="footer-wrapper">
+      <div class="para">
+        <p>Follow Us</p>
+      </div>
+      <div class="socialicon">
+        <a target="_blank" href="https://www.facebook.com">
+          <img class="sm_icon" src="images/1233013_facebook_icon.svg">
+        </a>
+        <a target="_blank" href="https://instagram.com">
+        <img class="sm_icon" src="images/3225191_app_instagram_logo_media_popular_icon.svg">
+        </a>
+        <a target="_blank" href="https://twitter.com">
+          <img class="sm_icon" src="images/317720_social media_tweet_twitter_social_icon.svg">
+        </a>
+        <a target="_blank" href="https://pinterest.com">
+            <img class="sm_icon" src="images/317731_pinterest_social_social media_icon.svg">
+        </a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/config.js"></script>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
