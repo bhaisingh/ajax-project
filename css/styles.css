@@ -70,7 +70,7 @@ button {
   font-size: 18px;
   border: none;
   color: white;
-  text-transform: uppercase;
+  text-transform: capitalize;
   background-color: rgb(150, 66, 233);
   cursor: pointer;
 }
@@ -136,4 +136,15 @@ footer {
 
 .sm_icon {
   width: 30px;
+}
+
+.messageBox {
+  margin: 0 auto;
+  width: 75%;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  background-color: brown;
+  border: 2px solid;
+  color: white;
 }
