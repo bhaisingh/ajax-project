@@ -64,6 +64,15 @@ form {
   width: 300px;
 }
 
+#genPassword {
+  height: 30px;
+  width: 500px;
+}
+
+#password-form {
+  text-align: center;
+}
+
 button {
   margin: 20px;
   padding: 0.5rem 1rem;
@@ -82,6 +91,18 @@ div.table-container-hidden {
 }
 
 div.table-container-visible {
+  width: 98%;
+  margin: 1%;
+  display: block;
+}
+
+div.password-selection-hidden {
+  width: 98%;
+  margin: 1%;
+  display: none;
+}
+
+div.password-selection-visible {
   width: 98%;
   margin: 1%;
   display: block;

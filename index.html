@@ -44,6 +44,22 @@
           <div class="table-container-hidden">
             
           </div>
+          <div class="password-selection-hidden"> 
+            <form id="password-form">
+              <label for="password">Password Type:</label>
+              <select id="newPassType" name="newPassType">
+                <option value="passphrase">Readable Passphrase</option>
+                <option value="dictpassphrase">Dictionary Passphrase</option>
+                <option value="Prouncepassword">Pronounceable Password</option>
+                <option value="Hex">Hex</option>
+              </select>
+              <input type="text" id="genPassword" name="genPassword" readonly>
+              
+              <div class="form-actions">
+                <button type="submit">Generate Password</button>
+              </div>
+            </form>
+          </div>
         </div>
       </section>
     </div>

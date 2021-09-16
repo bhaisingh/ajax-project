@@ -5,6 +5,7 @@ const key = config.API_KEY;
 const $form = document.querySelector('#search-form');
 const $tablearea = document.querySelector('.table-container-hidden');
 let hashValue = '';
+const $passwordForm = document.querySelector('#password-form');
 
 $form.addEventListener('submit', function () {
   event.preventDefault();
@@ -206,10 +207,11 @@ function httpRequest(type, apiName, parm, callback) {
   const xhr = new XMLHttpRequest();
   // xhr.timeout = 2000;
   const proxy = 'https://lfz-cors.herokuapp.com/?url=';
-  let baseURL = 'https://haveibeenpwned.com/api/v3/';
+  let baseURL = '';
   let url = '';
   switch (type) {
     case 'email':
+      baseURL = 'https://haveibeenpwned.com/api/v3/';
       url = proxy + baseURL + apiName + parm;
       xhr.responseType = 'json';
       break;
@@ -219,10 +221,15 @@ function httpRequest(type, apiName, parm, callback) {
       xhr.responseType = 'text';
       break;
     case 'breach':
+      baseURL = 'https://haveibeenpwned.com/api/v3/';
       url = proxy + baseURL + apiName + parm;
       xhr.responseType = 'json';
       break;
-
+    case 'passphrase':
+      baseURL = 'https://makemeapassword.ligos.net';
+      url = proxy + baseURL + apiName;
+      xhr.responseType = 'json';
+      break;
   }
   xhr.onreadystatechange = function (e) {
     if (xhr.readyState === 4) {
@@ -322,4 +329,47 @@ function buildPassordDisplay(occurValue) {
   div.appendChild(passButton);
   passButton.setAttribute('type', 'button');
   passButton.textContent = 'Generate Complex Password';
+
+}
+
+const $passButton = document.querySelector('.table-container-hidden');
+$passButton.addEventListener('click', function () {
+  event.preventDefault();
+  const $passForm = document.querySelector('.password-selection-hidden');
+  $passForm.setAttribute('class', '.password-selection-visible');
+});
+
+const $genPassword = document.querySelector('.password-selection-hidden');
+$genPassword.addEventListener('submit', function () {
+  event.preventDefault();
+  const $newPassType = $passwordForm.elements.newPassType.value;
+
+  let apiName = '';
+  switch ($newPassType) {
+    case 'passphrase':
+      apiName = '/api/v1/readablepassphrase/json?pc=10&s=RandomLong';
+      httpRequest('passphrase', apiName, '', fillPasswordContent);
+
+      break;
+    case 'dictpassphrase':
+      apiName = '/api/v1/passphrase/json?pc=10&wc=6';
+      httpRequest('passphrase', apiName, '', fillPasswordContent);
+
+      break;
+    case 'Prouncepassword':
+      apiName = '/api/v1/pronounceable/json?c=10&sc=5';
+      httpRequest('passphrase', apiName, '', fillPasswordContent);
+
+      break;
+    case 'Hex':
+      apiName = '/api/v1/hex/json?c=10&l=16';
+      httpRequest('passphrase', apiName, '', fillPasswordContent);
+
+      break;
+  }
+});
+
+function fillPasswordContent(response) {
+  document.getElementById('genPassword').setAttribute('value', response.pws[0]);
+
 }
