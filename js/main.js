@@ -32,6 +32,15 @@ $form.addEventListener('submit', function () {
       }
       break;
     case 'domain':
+      if (isNullOrWhitespace($searchParm)) {
+        alert('Please enter a valid domain name to search');
+      } else {
+        if (validateDomain($searchParm)) {
+          searchDomain($searchParm);
+        } else {
+          alert('Domain not valid, please enter a valid Domain');
+        }
+      }
       break;
     case 'All Sites':
       break;
@@ -52,9 +61,24 @@ function validateEmail(value) {
   return typeof input.checkValidity === 'function' ? input.checkValidity() : /\S+@\S+\.\S+/.test(value);
 }
 
+function validateDomain(value) {
+  var input = document.createElement('input');
+
+  input.type = 'text';
+  input.required = true;
+  input.value = value;
+  return typeof input.checkValidity === 'function' ? input.checkValidity() : /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/.test(value);
+}
+
 function searchEmail(value) {
   const apiName = 'breachedaccount/';
   httpRequest('email', apiName, value, buildEmailDisplayContent);
+  buildDisplayTable();
+}
+
+function searchDomain(value) {
+  const apiName = 'breaches?domain=';
+  httpRequest('domain', apiName, value, buildDomainDisplayContent);
   buildDisplayTable();
 }
 
@@ -230,6 +254,11 @@ function httpRequest(type, apiName, parm, callback) {
       url = proxy + baseURL + apiName;
       xhr.responseType = 'json';
       break;
+    case 'domain':
+      baseURL = 'https://haveibeenpwned.com/api/v3/';
+      url = proxy + baseURL + apiName + parm;
+      xhr.responseType = 'json';
+      break;
   }
   xhr.onreadystatechange = function (e) {
     if (xhr.readyState === 4) {
@@ -285,6 +314,7 @@ function buildColumn(response) {
 }
 
 function buildDisplayTable() {
+  $tablearea.innerHTML = '';
   const table = document.createElement('table');
   table.setAttribute('class', 'table');
   $tablearea.appendChild(table);
@@ -372,4 +402,8 @@ $genPassword.addEventListener('submit', function () {
 function fillPasswordContent(response) {
   document.getElementById('genPassword').setAttribute('value', response.pws[0]);
 
+}
+
+function buildDomainDisplayContent(response) {
+  buildColumn(response[0]);
 }
