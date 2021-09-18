@@ -43,6 +43,7 @@ $form.addEventListener('submit', function () {
       }
       break;
     case 'All Sites':
+      showAllSites();
       break;
   }
 });
@@ -79,6 +80,12 @@ function searchEmail(value) {
 function searchDomain(value) {
   const apiName = 'breaches?domain=';
   httpRequest('domain', apiName, value, buildDomainDisplayContent);
+  buildDisplayTable();
+}
+
+function showAllSites() {
+  const apiName = 'breaches';
+  httpRequest('domain', apiName, '', buildAllSiteDisplayContent);
   buildDisplayTable();
 }
 
@@ -406,4 +413,10 @@ function fillPasswordContent(response) {
 
 function buildDomainDisplayContent(response) {
   buildColumn(response[0]);
+}
+
+function buildAllSiteDisplayContent(response) {
+  response.forEach(element => {
+    buildColumn(element);
+  });
 }
